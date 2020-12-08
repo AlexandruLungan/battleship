@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>BATTLESHIP GAME</title>
     <style>
+        .transform {
+            transform: scale(0.3, 0.3); /* Moz-browsers */
+            zoom: 0.3; /* Other non-webkit browsers */
+            zoom: 30%; /* Webkit browsers */
+        }
+        .transform2 {
+            transform: scale(0.8, 0.8); /* Moz-browsers */
+            zoom: 0.8; /* Other non-webkit browsers */
+            zoom: 80%; /* Webkit browsers */
+        }
         body {
             background-color: black;
             transform: scale(0.8, 0.8); /* Moz-browsers */
             zoom: 0.8; /* Other non-webkit browsers */
-            zoom: 80%; /* Webkit browsers */
+            zoom: 80%;
         }
 
         div#board {
@@ -61,7 +71,7 @@
                 background: url("miss.png") no-repeat center center;
                 }
         .button {
-            transition-duration: 0.4s;
+            transition-duration: 2s;
             cursor: pointer;
         }
         .button1:hover {
@@ -104,7 +114,7 @@
             </tr>
             </table>
         <form>
-            <input type="text" id="guessImput" placeholder="A0">
+            <input type="text" id="guessInput" placeholder="A0">
             <input class="button button1" type="button" id="fireButton" value="Fire!">
         </form>
     </div>

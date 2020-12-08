@@ -113,7 +113,19 @@ function parseGuess(guess){
 
 };
 
-controller.processGuess("A0");
-controller.processGuess("A6");
-controller.processGuess("B6");
-controller.processGuess("c6");
+
+        function init(){
+            var fireButton = document.getElementById("fireButton");
+            fireButton.onclick = handleFireButton;
+        };
+
+        function handleFireButton(){
+            var guessInput = document.getElementById("guessInput");
+            var guess = guessInput.value;
+            controller.processGuess(guess);
+            guessInput.value = "";
+        };
+
+        window.onload = init;
+
+
