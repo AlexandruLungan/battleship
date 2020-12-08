@@ -5,6 +5,31 @@
     <meta name="viewport" content="width=device-width,initial-scale=0.5,maximum-scale=1,user-scalable=yes"/>
     <title>BATTLESHIP GAME</title>
     <style>
+        #overlay {
+  position: fixed;
+  display: none;
+  width: 50%;
+  height: 80%;
+  left: 400px;
+    top: 98px;
+ 
+  
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 75, 7, 0.9);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
         .transform {
             transform: scale(0.3, 0.3); /* Moz-browsers */
             zoom: 0.3; /* Other non-webkit browsers */
@@ -46,6 +71,18 @@
             height: 94px;
         }
 
+        .buttonInstructions {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            
+            background-color: rgb(60, 129, 11);
+            
+            font-size: 33px;
+                        
+        }
+        .button5 {border-radius: 50%;}
+
         form {
             position: absolute;
             bottom: 0px;
@@ -57,8 +94,8 @@
         form input {
             background-color: rgb(152, 207, 113);
             border-color: rgb(83, 175, 19);
-            font-size: 2rem;
-            width: 90px;
+            font-size: 30px;
+            width: 130px;
         }
         .hit { 
                 background: url("ship.png") no-repeat center center;
@@ -113,8 +150,34 @@
             <input type="text" id="guessInput" placeholder="A0">
             <input class="button button1" type="button" id="fireButton" value="Fire!">
         </form>
+        <div id="overlay" onclick="off()" >
+            <div id="text" > 
+            <p>~ Your mission is to sink all the ships</p>
+            <p>~ There are 3 groups with 3 battleships each.</p>
+            <p>~ They are orientated vertical or horizontal.</p>
+            <p>~ Type one letter and one number fron the grid.</p>
+            <p>~ Lunch the Fire button or Enter.</p>
+            <p>~ After you sunk them all, the game will reset 
+                with different battleships possitions.</p>
+          
+          </div>
+          </div>
+          
+          <div>
+            <button class = "buttonInstructions button5" onclick="on()">Help</button>
+          </div>
     </div>
-
+    
+      
+      <script>
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+      
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
     <script src="battleship.js"> </script>
 </body>
 </html>
