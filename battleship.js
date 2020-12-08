@@ -57,7 +57,7 @@ var model = {
         for ( var i = 0; i < this.shipLenght; i++){
             if (ship.hits[i] !== "hit"){
                 return false;
-            }
+            };
         }
         return true;
     }
@@ -68,4 +68,52 @@ var model = {
 //model.fire("53");
 //model.fire("06");
 
-//Implementing the CONTROLER
+//Implementing the CONTROLLER
+
+var controller = {
+    guesses : 0,
+
+    processGuess (guess){
+        var location = parseGuess(guess);
+
+        if(location){
+            this.guesses++;
+            var hit = model.fire(location);
+
+            if(hit && model.shipsSunk === model.numShips){
+                view.displayMessage("You sank all my battleships, in " + this.guesses + " guesses!")
+            }
+        }
+    }
+};
+
+function parseGuess(guess){
+    guess = guess.toUpperCase();
+    var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
+
+    if(guess === null || guess.length !== 2){
+        alert("Ooops! Please enter a letter and a number. Ex A0");
+    } else {
+        var firstChar = guess.charAt(0);
+        var row = alphabet.indexOf(firstChar);
+
+        var column = guess.charAt(1);
+        if(isNaN(row) || isNaN(column)){
+            alert("Ooops, that isn't on the board.")
+        } else if (row < 0 || row >= model.boardSize || 
+                   column < 0 || column >=model.boardSize){
+            alert("Ooops, that's off the board!")
+                   }
+                   else {
+                       return row + column;
+                   }
+    } 
+    return null;
+
+
+};
+
+controller.processGuess("A0");
+controller.processGuess("A6");
+controller.processGuess("B6");
+controller.processGuess("c6");

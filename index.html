@@ -10,8 +10,6 @@
             transform: scale(0.8, 0.8); /* Moz-browsers */
             zoom: 0.8; /* Other non-webkit browsers */
             zoom: 80%; /* Webkit browsers */
-
-            
         }
 
         div#board {
@@ -27,6 +25,7 @@
             top: 0px;
             left: 0px;
             color: rgb(83, 175, 19);
+            font-size: 2em;
         }
 
         table {
@@ -45,14 +44,15 @@
             position: absolute;
             bottom: 0px;
             right: 0px;
-            padding: 15px;
+            padding: 3px;
             background-color: rgb(83, 175, 19);
         }
 
         form input {
             background-color: rgb(152, 207, 113);
             border-color: rgb(83, 175, 19);
-            font-size: 1em;
+            font-size: 2rem;
+            width: 90px;
         }
         .hit { 
                 background: url("ship.png") no-repeat center center;
@@ -60,6 +60,14 @@
         .miss {
                 background: url("miss.png") no-repeat center center;
                 }
+        .button {
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        .button1:hover {
+            background-color: #f44336;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -97,7 +105,7 @@
             </table>
         <form>
             <input type="text" id="guessImput" placeholder="A0">
-            <input type="button" id="fireButton" value="Fire!">
+            <input class="button button1" type="button" id="fireButton" value="Fire!">
         </form>
     </div>
 
